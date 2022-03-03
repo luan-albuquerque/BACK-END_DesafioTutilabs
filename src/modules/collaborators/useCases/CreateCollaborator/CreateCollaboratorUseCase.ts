@@ -1,0 +1,8 @@
+class CreateCollaboratorUseCase{
+
+
+
+
+}
+
+export {CreateCollaboratorUseCase}
