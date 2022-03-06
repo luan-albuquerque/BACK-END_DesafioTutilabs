@@ -58,8 +58,8 @@ class UserRepositoryInPrisma implements IUserRepository {
     });
     return response;
   }
-  async findByUserInDepartment(id: string): Promise<User[]> {
-    const response = await prismaAgent.user.findMany({
+  async findByUserInDepartment(id: string): Promise<User> {
+    const response = await prismaAgent.user.findFirst({
       where: {
         fk_department: id,
       },
