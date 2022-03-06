@@ -1,8 +1,0 @@
-class CreateCollaboratorUseCase{
-
-
-
-
-}
-
-export {CreateCollaboratorUseCase}
