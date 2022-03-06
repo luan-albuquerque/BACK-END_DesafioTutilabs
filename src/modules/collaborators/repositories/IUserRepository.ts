@@ -13,6 +13,7 @@ interface IUserRepository {
   listUsers(): Promise<IListUsersDTO[]>;
   findByCPF(cpf: string): Promise<User>;
   findByIdUser(id: string): Promise<User>;
+  findByUserInDepartment(id: string): Promise<User[]>;
   updateUser({
     id,
     nome,
