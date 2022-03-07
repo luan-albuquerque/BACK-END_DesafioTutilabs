@@ -3,11 +3,11 @@ import { AppError } from "infra/errors/AppError";
 
 interface IRequest {
   description: string;
+  id: string;
 }
-class CreateDepartmentUseCase {
+class UpdateDepartmentUseCase {
   constructor(private departmentRepositoryInPrisma: IDepartmentRepository) {}
-  async execute({ description }: IRequest): Promise<void> {
-
+  async execute({ description, id }: IRequest): Promise<void> {
     const departmentAlreadyExist =
       await this.departmentRepositoryInPrisma.findByDepartment(description);
 
@@ -15,8 +15,11 @@ class CreateDepartmentUseCase {
       throw new AppError("Department Already Exist", 404);
     }
 
-    await this.departmentRepositoryInPrisma.createDepartment({ description });
+    await this.departmentRepositoryInPrisma.updateDepartment({
+      description,
+      id,
+    });
   }
 }
 
-export { CreateDepartmentUseCase };
+export { UpdateDepartmentUseCase };

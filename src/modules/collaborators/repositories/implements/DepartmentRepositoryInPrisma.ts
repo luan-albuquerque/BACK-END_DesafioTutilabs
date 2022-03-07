@@ -5,6 +5,19 @@ import { Department } from "../../entities/Department";
 import { IDepartmentRepository } from "../IDepartmentRepository";
 
 class DepartmentRepositoryInPrisma implements IDepartmentRepository {
+  async updateDepartment({
+    description,
+    id,
+  }: IUpdateDepartmentDTO): Promise<void> {
+    await prismaAgent.department.update({
+      data: {
+        description,
+      },
+      where: {
+        id,
+      },
+    });
+  }
   async findByIdDepartment(id: string): Promise<Department> {
     const response = await prismaAgent.department.findUnique({
       where: {

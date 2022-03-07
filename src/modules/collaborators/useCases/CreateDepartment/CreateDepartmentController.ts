@@ -7,6 +7,7 @@ class CreateDepartmentController {
   async handle(request: Request, response: Response): Promise<Response> {
     const { description } = request.body;
 
+
     await this.createDepartmentUseCase.execute({ description });
     return response.status(201).json({ message: "created" });
   }

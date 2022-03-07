@@ -6,6 +6,7 @@ interface IDepartmentRepository {
   listDepartment(): Promise<Department[]>;
   findByDepartment(description: string): Promise<Department>;
   findByIdDepartment(id: string): Promise<Department>;
+  updateDepartment({ description, id }: IUpdateDepartmentDTO): Promise<void>;
   deleteDepartment(id: string): Promise<void>;
 }
 

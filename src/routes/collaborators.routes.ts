@@ -9,23 +9,23 @@ import { ensureAuthenticated } from "infra/middlewares/ensureAuthenticated";
 
 const collaboratorsRoutes = Router();
 
-collaboratorsRoutes.post("/", ensureAuthenticated, (request, response) => {
+collaboratorsRoutes.post("/" ,(request, response) => {
   return createUserController.handle(request, response);
 });
 
-collaboratorsRoutes.get("/", ensureAuthenticated, (request, response) => {
+collaboratorsRoutes.get("/", (request, response) => {
   return listUserController.handle(request, response);
 });
 
-collaboratorsRoutes.get("/:id", ensureAuthenticated, (request, response) => {
+collaboratorsRoutes.get("/:id", (request, response) => {
   return findByUserController.handle(request, response);
 });
 
-collaboratorsRoutes.put("/:id", ensureAuthenticated, (request, response) => {
+collaboratorsRoutes.put("/:id", (request, response) => {
   return updateUserController.handle(request, response);
 });
 
-collaboratorsRoutes.delete("/:id", ensureAuthenticated, (request, response) => {
+collaboratorsRoutes.delete("/:id", (request, response) => {
   return deleteUserController.handle(request, response);
 });
 
